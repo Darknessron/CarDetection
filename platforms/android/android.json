@@ -27,6 +27,10 @@
                         {
                             "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -84,6 +88,9 @@
             "PACKAGE_NAME": "car.detection"
         },
         "cordova-plugin-camera": {
+            "PACKAGE_NAME": "car.detection"
+        },
+        "cordova-plugin-whitelist-dev": {
             "PACKAGE_NAME": "car.detection"
         }
     },
@@ -315,6 +322,12 @@
             "clobbers": [
                 "CameraPopoverHandle"
             ]
+        },
+        {
+            "id": "cordova-plugin-whitelist-dev.whitelist",
+            "file": "plugins/cordova-plugin-whitelist-dev/whitelist.js",
+            "pluginId": "cordova-plugin-whitelist-dev",
+            "runs": true
         }
     ],
     "plugin_metadata": {
@@ -323,6 +336,7 @@
         "com.performanceactive.plugins.camera": "1.4",
         "cordova-plugin-compat": "1.1.0",
         "cordova-plugin-file": "4.3.1",
-        "cordova-plugin-camera": "2.3.1"
+        "cordova-plugin-camera": "2.3.1",
+        "cordova-plugin-whitelist-dev": "1.1.6"
     }
 }

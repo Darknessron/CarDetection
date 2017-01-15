@@ -226,6 +226,12 @@ module.exports = [
         "clobbers": [
             "CameraPopoverHandle"
         ]
+    },
+    {
+        "id": "cordova-plugin-whitelist-dev.whitelist",
+        "file": "plugins/cordova-plugin-whitelist-dev/whitelist.js",
+        "pluginId": "cordova-plugin-whitelist-dev",
+        "runs": true
     }
 ];
 module.exports.metadata = 
@@ -236,7 +242,8 @@ module.exports.metadata =
     "com.performanceactive.plugins.camera": "1.4",
     "cordova-plugin-compat": "1.1.0",
     "cordova-plugin-file": "4.3.1",
-    "cordova-plugin-camera": "2.3.1"
+    "cordova-plugin-camera": "2.3.1",
+    "cordova-plugin-whitelist-dev": "1.1.6"
 };
 // BOTTOM OF METADATA
 });
