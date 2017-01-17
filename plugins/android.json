@@ -21,6 +21,12 @@
         },
         "cordova-plugin-whitelist-dev": {
             "PACKAGE_NAME": "car.detection"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "car.detection"
+        },
+        "cordova-plugin-android-permissions": {
+            "PACKAGE_NAME": "car.detection"
         }
     },
     "dependent_plugins": {
