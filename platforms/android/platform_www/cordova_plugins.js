@@ -228,12 +228,6 @@ module.exports = [
         ]
     },
     {
-        "id": "cordova-plugin-whitelist-dev.whitelist",
-        "file": "plugins/cordova-plugin-whitelist-dev/whitelist.js",
-        "pluginId": "cordova-plugin-whitelist-dev",
-        "runs": true
-    },
-    {
         "id": "cordova-plugin-file-transfer.FileTransferError",
         "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
         "pluginId": "cordova-plugin-file-transfer",
@@ -267,7 +261,6 @@ module.exports.metadata =
     "cordova-plugin-compat": "1.1.0",
     "cordova-plugin-file": "4.3.1",
     "cordova-plugin-camera": "2.3.1",
-    "cordova-plugin-whitelist-dev": "1.1.6",
     "cordova-plugin-file-transfer": "1.6.1",
     "cordova-plugin-android-permissions": "0.10.0"
 };

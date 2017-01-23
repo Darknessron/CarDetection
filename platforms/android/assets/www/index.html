@@ -4,6 +4,7 @@
     <title>Capture Photo</title>
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="./js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" charset="utf-8">
 
     var pictureSource;   // picture source
@@ -13,12 +14,33 @@
     //
     document.addEventListener("deviceready",onDeviceReady,false);
     document.addEventListener("backbutton", onBackKeyDown, false);
+    
+    
 
     // device APIs are available
     //
     function onDeviceReady() {
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
+        
+        //ask permission
+        var permissions = cordova.plugins.permissions;
+    	permissions.hasPermission(permissions.CAMERA, function checkPermissionCallback(status) {
+      	  if(!status.hasPermission) {
+      	    var errorCallback = function() {
+      	      console.warn('Camera permission is not turned on');
+      	    }
+      	 
+      	    permissions.requestPermission(
+      	      permissions.CAMERA,
+      	      function(status) {
+      	        if(!status.hasPermission) errorCallback();
+      	      },
+      	      errorCallback);
+      	  }
+      	}, null);
+     
+    	
 
     }
     
@@ -83,7 +105,34 @@
     function success(fileUri) {
         //alert("File location: " + fileUri);
         screen.unlockOrientation();
-        moveFile(fileUri);
+        //moveFile(fileUri);
+        uploadFile(fileUri);
+    }
+    
+    function uploadFile(fileUri)	{
+		var uri = encodeURI("http://35.167.208.224:8080/OpenCV_demo/ImageServlet");
+    	var ft = new FileTransfer();
+    	ft.upload(fileUri, uri, win, fail);
+    }
+    
+    function win(r) {
+        console.log("Code = " + r.responseCode);
+        console.log("Response = " + r.response);
+        console.log("Sent = " + r.bytesSent);
+        
+        var jsonObj = $.parseJSON(r.response);
+        
+        for (var i = 0; i<jsonObj.length; i++)	{
+    		var img = $('<img id="image_'+i+'">'); //Equivalent: $(document.createElement('img'))
+    		img.attr('src', 'data:image/'+jsonObj[i].imageType+';base64,'+jsonObj[i].base64);
+    		img.appendTo('#imagediv');
+        }
+    }
+
+    function fail(error) {
+        alert("An error has occurred: Code = " + error.code);
+        console.log("upload error source " + error.source);
+        console.log("upload error target " + error.target);
     }
     
     function moveFile(fileUri) {
@@ -104,8 +153,8 @@
     </script>
   </head>
   <body>
-    <button onclick="capturePhoto();">Capture Photo</button> <br>
-    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-    <img style="display:none;" id="largeImage" src="" />
+    <button onclick="capturePhoto();">Capture Photo</button> <br/>
+<div id="imagediv">
+</div>
   </body>
 </html>

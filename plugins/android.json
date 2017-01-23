@@ -19,9 +19,6 @@
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "car.detection"
         },
-        "cordova-plugin-whitelist-dev": {
-            "PACKAGE_NAME": "car.detection"
-        },
         "cordova-plugin-file-transfer": {
             "PACKAGE_NAME": "car.detection"
         },

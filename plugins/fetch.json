@@ -50,22 +50,6 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-whitelist-dev": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-whitelist-dev@1.1.6"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-whitelist": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-whitelist@1"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-file-transfer": {
         "source": {
             "type": "registry",
